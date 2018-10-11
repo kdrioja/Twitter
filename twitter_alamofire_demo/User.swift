@@ -11,13 +11,13 @@ import Foundation
 class User {
     //Properties
     var name: String?
-    var username: String?
+    var screenName: String?
     static var currentUser: User?
     
     //Initializer
     init(dictionary: [String: Any]) {
         name = dictionary["name"] as? String ?? ""
-        username = dictionary["username"] as? String ?? ""
+        screenName = dictionary["screen_name"] as? String ?? ""
         
     }
     
