@@ -12,7 +12,7 @@ class User {
     //Properties
     var name: String?
     var screenName: String?
-    static var currentUser: User?
+    static var current: User?
     
     //Initializer
     init(dictionary: [String: Any]) {
