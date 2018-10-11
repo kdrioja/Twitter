@@ -110,6 +110,17 @@ class APIManager: SessionManager {
         }
     }
     
+    // Log Out
+    static func logout() {
+        // 1. Clear current user
+        User.current = nil
+        
+        // TODO: 2. Deauthorize OAuth tokens
+        
+        // 3. Post logout notification
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
+    
     // MARK: TODO: Favorite a Tweet
     
     // MARK: TODO: Un-Favorite a Tweet
