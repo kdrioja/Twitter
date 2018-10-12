@@ -16,8 +16,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
-    @IBOutlet weak var retweetCountLabel: UILabel!
-    @IBOutlet weak var favoriteCountLabel: UILabel!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var tweet: Tweet?
     var user: User?
@@ -33,12 +33,16 @@ class TweetCell: UITableViewCell {
             nameLabel.text = user.name
             usernameLabel.text = "@\(user.screenName!)"
             tweetLabel.text = tweet.text
+            updateButtonCounts()
             //retweetCountLabel.text = (tweet.retweetCount as! String)
             //favoriteCountLabel.text = (tweet.favoriteCount as! String)
         }
     }
     
-    
+    func updateButtonCounts() {
+        retweetButton.setTitle("\(tweet?.retweetCount)", for: .normal)
+        favoriteButton.setTitle("\(tweet?.favoriteCount!)", for: .normal)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

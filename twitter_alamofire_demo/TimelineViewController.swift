@@ -21,7 +21,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
         self.updateUserInfo()
         
         tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 150
+        //tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
         refreshControl = UIRefreshControl()
