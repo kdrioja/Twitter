@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetCell: UITableViewCell {
 
@@ -18,6 +19,20 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    var tweet: Tweet?
+    var user: User?
+    var parentView: TimelineViewController?
+    var indexPath: IndexPath?
+    
+    func updateAllFields() {
+        if let tweet = self.tweet, let user = self.user {
+            if let profilePhotoURL = user.profilePhoto {
+                
+            }
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,9 +43,4 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func storeTweet() {
-        
-    }
-
 }
