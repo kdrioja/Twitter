@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Logout notification received")
             // TODO: Load and show the login view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "PUT_YOUR_LOGIN_VC_ID_HERE")
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             self.window?.rootViewController = loginViewController
         }
         
