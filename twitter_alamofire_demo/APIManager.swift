@@ -111,12 +111,12 @@ class APIManager: SessionManager {
     }
     
     // Log Out
-    static func logout() {
+    func logout() {
         // 1. Clear current user
         User.current = nil
         
         // TODO: 2. Deauthorize OAuth tokens
-        
+        self.clearCredentials()
         // 3. Post logout notification
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
