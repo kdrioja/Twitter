@@ -41,7 +41,7 @@ class APIManager: SessionManager {
                     print("Welcome \(user.name)")
                     
                     // MARK: TODO: set User.current, so that it's persisted
-                    
+                    User.current = user
                     success()
                 }
             })
@@ -144,6 +144,12 @@ class APIManager: SessionManager {
         }
     }
     
+    func updatTweetCount(user: User?) {
+        if let user = user {
+            user.statusCount! += 1
+        }
+    }
+    
     // MARK: TODO: Get User Timeline
     
     
@@ -152,7 +158,6 @@ class APIManager: SessionManager {
     
     //MARK: OAuth
     static var shared: APIManager = APIManager()
-    
     var oauthManager: OAuth1Swift!
     
     // Private init for singleton only
