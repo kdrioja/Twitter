@@ -103,8 +103,8 @@
 		5DE708B3216FC2FE00247F8F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5DE708B4216FC31700247F8F /* User.swift */,
 				5DE708B6216FC4CD00247F8F /* Tweet.swift */,
+				5DE708B4216FC31700247F8F /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -158,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				ED1AFD341E942B2500FD4B90 /* Main.storyboard */,
-				5DD8237E2170656F0004965C /* TweetCell.swift */,
 				5DE708B3216FC2FE00247F8F /* Models */,
 				ED1D23501EF7650B00C51ACC /* API */,
 				ED1D234A1EF6E3B800C51ACC /* View Controllers */,
@@ -192,6 +191,7 @@
 		ED1D234A1EF6E3B800C51ACC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DD8237E2170656F0004965C /* TweetCell.swift */,
 				BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */,
 				ED1AFD601E94496E00FD4B90 /* LoginViewController.swift */,
 			);

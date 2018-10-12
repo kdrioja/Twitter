@@ -25,7 +25,10 @@ class Tweet {
     //Initializer
     init(dictionary: [String: Any]) {
         var dictionary = dictionary
-        
+        if let twitid: NSNumber = dictionary["id"] as? NSNumber{
+            id = twitid.int64Value
+            
+        }
         // Is this a re-tweet?
         if let originalTweet = dictionary["retweeted_status"] as? [String: Any] {
             let userDictionary = dictionary["user"] as! [String: Any]
@@ -35,7 +38,7 @@ class Tweet {
             dictionary = originalTweet
         }
         
-        id = dictionary["id"] as! Int64
+        //id = dictionary["id"] as! Int64
         text = dictionary["text"] as! String
         favoriteCount = dictionary["favorite_count"] as? Int
         favorited = dictionary["favorited"] as? Bool
