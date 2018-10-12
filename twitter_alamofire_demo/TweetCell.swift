@@ -40,12 +40,13 @@ class TweetCell: UITableViewCell {
     }
     
     func updateButtonCounts() {
-        retweetButton.setTitle("\(tweet?.retweetCount)", for: .normal)
-        favoriteButton.setTitle("\(tweet?.favoriteCount!)", for: .normal)
+        retweetButton.setTitle("\(tweet?.retweetCount! ?? 0)", for: .normal)
+        favoriteButton.setTitle("\(tweet?.favoriteCount! ?? 0)", for: .normal)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profilePictureImageView.layer.cornerRadius = 3
+        profilePictureImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
