@@ -33,16 +33,79 @@ class TweetCell: UITableViewCell {
             nameLabel.text = user.name
             usernameLabel.text = "@\(user.screenName!)"
             tweetLabel.text = tweet.text
-            updateButtonCounts()
+            self.updateButtonCounts(tweet)
+            self.updateTweetIcons(tweet)
             //retweetCountLabel.text = (tweet.retweetCount as! String)
             //favoriteCountLabel.text = (tweet.favoriteCount as! String)
         }
     }
     
-    func updateButtonCounts() {
-        retweetButton.setTitle("\(tweet?.retweetCount! ?? 0)", for: .normal)
-        favoriteButton.setTitle("\(tweet?.favoriteCount! ?? 0)", for: .normal)
+    func updateButtonCounts(_ tweet: Tweet) {
+        retweetButton.setTitle("\(tweet.retweetCount!)", for: .normal)
+        favoriteButton.setTitle("\(tweet.favoriteCount!)", for: .normal)
     }
+    
+    @IBAction func onRetweet(_ sender: Any) {
+        if (tweet!.retweeted == false) {
+            APIManager.shared.retweet(self.tweet!) { (post, error) in
+                if let  error = error {
+                    print("Error Retweeting Tweet: \(error.localizedDescription)")
+                } else {
+                    self.parentView?.fetchTweets()
+                }
+            }
+        }
+        else {
+            APIManager.shared.unretweet(self.tweet!) { (post, error) in
+                if let  error = error {
+                    print("Error Retweeting Tweet: \(error.localizedDescription)")
+                } else {
+                    self.parentView?.fetchTweets()
+                }
+            }
+        }
+        self.updateTweetIcons(tweet!)
+    }
+    
+    @IBAction func onFavorite(_ sender: Any) {
+        if (tweet!.favorited == false) {
+            APIManager.shared.favorite(self.tweet!) { (post, error) in
+                if let  error = error {
+                    print("Error Favoriting Tweet: \(error.localizedDescription)")
+                } else {
+                    self.parentView?.fetchTweets()
+                }
+            }
+        }
+        else {
+            APIManager.shared.unfavorite(self.tweet!) { (post, error) in
+                if let  error = error {
+                    print("Error Favoriting Tweet: \(error.localizedDescription)")
+                } else {
+                    self.parentView?.fetchTweets()
+                }
+            }
+        }
+        
+        self.updateTweetIcons(tweet!)
+    }
+    
+    func updateTweetIcons(_ tweet: Tweet) {
+        if (tweet.favorited! == true) {
+            self.favoriteButton.setImage(UIImage(named: "favor-icon-red.png"), for: .normal)
+        }
+        else {
+            self.favoriteButton.setImage(UIImage(named: "favor-icon.png"), for: .normal)
+        }
+        
+        if (tweet.retweeted == true) {
+            self.retweetButton.setImage(UIImage(named: "retweet-icon-green.png"), for: .normal)
+        }
+        else {
+            self.retweetButton.setImage(UIImage(named: "retweet-icon.png"), for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         profilePictureImageView.layer.cornerRadius = 3
