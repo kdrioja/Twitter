@@ -45,8 +45,17 @@ class TweetCell: UITableViewCell {
         favoriteButton.setTitle("\(tweet.favoriteCount!)", for: .normal)
     }
     
+    //1. Update local tweet model
+    //2. Update cell ui
+    //3. Send a POST request to the POST favorites/create endpoint
+    
     @IBAction func onRetweet(_ sender: Any) {
         if (tweet!.retweeted == false) {
+            tweet?.retweeted = true
+            tweet?.retweetCount = (tweet?.retweetCount)! + 1
+            self.updateTweetIcons(tweet!)
+            self.updateButtonCounts(tweet!)
+            
             APIManager.shared.retweet(self.tweet!) { (post, error) in
                 if let  error = error {
                     print("Error Retweeting Tweet: \(error.localizedDescription)")
@@ -56,6 +65,11 @@ class TweetCell: UITableViewCell {
             }
         }
         else {
+            tweet?.retweeted = false
+            tweet?.retweetCount = (tweet?.retweetCount)! - 1
+            self.updateTweetIcons(tweet!)
+            self.updateButtonCounts(tweet!)
+            
             APIManager.shared.unretweet(self.tweet!) { (post, error) in
                 if let  error = error {
                     print("Error Retweeting Tweet: \(error.localizedDescription)")
@@ -64,11 +78,15 @@ class TweetCell: UITableViewCell {
                 }
             }
         }
-        //self.updateTweetIcons(tweet!)
     }
     
     @IBAction func onFavorite(_ sender: Any) {
         if (tweet!.favorited == false) {
+            tweet?.favorited = true
+            tweet?.favoriteCount = (tweet?.favoriteCount)! + 1
+            self.updateTweetIcons(tweet!)
+            self.updateButtonCounts(tweet!)
+            
             APIManager.shared.favorite(self.tweet!) { (post, error) in
                 if let  error = error {
                     print("Error Favoriting Tweet: \(error.localizedDescription)")
@@ -78,6 +96,11 @@ class TweetCell: UITableViewCell {
             }
         }
         else {
+            tweet?.favorited = false
+            tweet?.favoriteCount = (tweet?.favoriteCount)! - 1
+            self.updateTweetIcons(tweet!)
+            self.updateButtonCounts(tweet!)
+            
             APIManager.shared.unfavorite(self.tweet!) { (post, error) in
                 if let  error = error {
                     print("Error Favoriting Tweet: \(error.localizedDescription)")
@@ -86,8 +109,6 @@ class TweetCell: UITableViewCell {
                 }
             }
         }
-        
-        //self.updateTweetIcons(tweet!)
     }
     
     func updateTweetIcons(_ tweet: Tweet) {
