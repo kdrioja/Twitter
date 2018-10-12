@@ -27,6 +27,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(fetchTweets), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        
+        fetchTweets()
     }
     
     @IBAction func onLogout(_ sender: Any) {

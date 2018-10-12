@@ -15,8 +15,10 @@ import KeychainAccess
 class APIManager: SessionManager {
     
     // MARK: TODO: Add App Keys
-    static let consumerKey = "JjlpgkEo6sCCoiPe129kskOVa" //"uFTmFW66AAMEUwx3rZlZDMSCf"
-    static let consumerSecret = "Xuu2yOjygGWi1ji44tqBII7eyTyj8YXX4gqujbfWqZZppt6qok" //"LtlxIoQpBvHcqjpSMIA9Gs2E9wCJbr7xkx9EpSdBYoNedaZUgh"
+    static let consumerKey =  "uFTmFW66AAMEUwx3rZlZDMSCf"
+    // "JjlpgkEo6sCCoiPe129kskOVa"
+    static let consumerSecret =  "LtlxIoQpBvHcqjpSMIA9Gs2E9wCJbr7xkx9EpSdBYoNedaZUgh"
+    // "Xuu2yOjygGWi1ji44tqBII7eyTyj8YXX4gqujbfWqZZppt6qok"
 
     static let requestTokenURL = "https://api.twitter.com/oauth/request_token"
     static let authorizeURL = "https://api.twitter.com/oauth/authorize"
@@ -36,6 +38,7 @@ class APIManager: SessionManager {
             
             self.getCurrentAccount(completion: { (user, error) in
                 if let error = error {
+                    //print("I FAIL HERE")
                     failure(error)
                 } else if let user = user {
                     print("Welcome \(user.name)")

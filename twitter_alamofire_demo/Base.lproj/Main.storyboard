@@ -137,7 +137,6 @@
                                             <outlet property="profilePictureImageView" destination="h6d-9L-aMV" id="MPn-Ia-Nu4"/>
                                             <outlet property="retweetCountLabel" destination="pIL-bo-4u9" id="1BN-Xr-0JX"/>
                                             <outlet property="tweetLabel" destination="epC-Fs-Q5Z" id="NBl-3a-AbH"/>
-                                            <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="usernameLabel" destination="htC-10-1ih" id="Els-Xl-tB4"/>
                                         </connections>
                                     </tableViewCell>

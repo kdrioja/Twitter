@@ -33,8 +33,8 @@ class TweetCell: UITableViewCell {
             nameLabel.text = user.name
             usernameLabel.text = "@\(user.screenName!)"
             tweetLabel.text = tweet.text
-            retweetCountLabel.text = (tweet.retweetCount as! String)
-            favoriteCountLabel.text = (tweet.favoriteCount as! String)
+            //retweetCountLabel.text = (tweet.retweetCount as! String)
+            //favoriteCountLabel.text = (tweet.favoriteCount as! String)
         }
     }
     
