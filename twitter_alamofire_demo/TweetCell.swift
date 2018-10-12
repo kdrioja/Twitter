@@ -64,7 +64,7 @@ class TweetCell: UITableViewCell {
                 }
             }
         }
-        self.updateTweetIcons(tweet!)
+        //self.updateTweetIcons(tweet!)
     }
     
     @IBAction func onFavorite(_ sender: Any) {
@@ -87,7 +87,7 @@ class TweetCell: UITableViewCell {
             }
         }
         
-        self.updateTweetIcons(tweet!)
+        //self.updateTweetIcons(tweet!)
     }
     
     func updateTweetIcons(_ tweet: Tweet) {

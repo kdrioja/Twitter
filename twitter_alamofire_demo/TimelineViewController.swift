@@ -29,7 +29,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
         refreshControl.addTarget(self, action: #selector(fetchTweets), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
-        fetchTweets()
+        self.fetchTweets()
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -87,5 +87,10 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func did(post: Tweet) {
+        updateUserInfo()
+        fetchTweets()
     }
 }
