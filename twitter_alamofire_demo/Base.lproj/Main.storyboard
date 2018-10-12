@@ -148,17 +148,25 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="9Zi-uW-GTS">
                         <leftBarButtonItems>
-                            <barButtonItem image="edit-icon" id="P9p-Ee-OJ0"/>
-                            <barButtonItem image="profile-Icon" id="1m2-qI-VOp"/>
+                            <barButtonItem image="edit-icon" id="P9p-Ee-OJ0">
+                                <connections>
+                                    <action selector="onCompose:" destination="5YO-Vh-39k" id="oGa-Dt-NIm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="profile-Icon" id="1m2-qI-VOp">
+                                <connections>
+                                    <action selector="onProfile:" destination="5YO-Vh-39k" id="MrD-mO-e2J"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
                             <connections>
-                                <action selector="didTapLogout:" destination="5YO-Vh-39k" id="fM7-h5-mq1"/>
+                                <action selector="onLogout:" destination="5YO-Vh-39k" id="dvq-6e-vVs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="Ctl-bI-Eag" id="igH-cX-XMH"/>
+                        <outlet property="tableView" destination="Ctl-bI-Eag" id="Jwm-wO-1Ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>

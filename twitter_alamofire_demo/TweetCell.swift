@@ -27,8 +27,14 @@ class TweetCell: UITableViewCell {
     func updateAllFields() {
         if let tweet = self.tweet, let user = self.user {
             if let profilePhotoURL = user.profilePhoto {
-                
+                profilePictureImageView.af_setImage(withURL: profilePhotoURL)
             }
+            dateLabel.text = tweet.createdAtString
+            nameLabel.text = user.name
+            usernameLabel.text = "@\(user.screenName!)"
+            tweetLabel.text = tweet.text
+            retweetCountLabel.text = (tweet.retweetCount as! String)
+            favoriteCountLabel.text = (tweet.favoriteCount as! String)
         }
     }
     
