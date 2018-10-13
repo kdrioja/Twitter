@@ -45,6 +45,7 @@ class APIManager: SessionManager {
                     
                     // MARK: TODO: set User.current, so that it's persisted
                     User.current = user
+                    
                     success()
                 }
             })
