@@ -155,6 +155,7 @@
                                             <outlet property="retweetButton" destination="TgX-Yl-G35" id="TWf-7E-6Nt"/>
                                             <outlet property="tweetLabel" destination="epC-Fs-Q5Z" id="NBl-3a-AbH"/>
                                             <outlet property="usernameLabel" destination="htC-10-1ih" id="Els-Xl-tB4"/>
+                                            <segue destination="kid-ul-jmz" kind="show" id="7PX-2b-xTd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -187,12 +188,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1574" y="36"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="iOn-Oo-bBQ">
             <objects>
-                <viewController id="kid-ul-jmz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetDetailsViewController" id="kid-ul-jmz" customClass="TweetDetailsViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0M4-mD-C8L"/>
                         <viewControllerLayoutGuide type="bottom" id="zgM-dO-kTM"/>
@@ -233,7 +234,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guO-nT-hWQ">
-                                <rect key="frame" x="99" y="210" width="77" height="30"/>
+                                <rect key="frame" x="99" y="206.5" width="77" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="99999" image="retweet-icon">
                                     <color key="titleColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -260,6 +261,7 @@
                             <constraint firstItem="DAs-Jg-6c9" firstAttribute="top" secondItem="0M4-mD-C8L" secondAttribute="bottom" constant="16" id="6F7-Al-mvI"/>
                             <constraint firstItem="guO-nT-hWQ" firstAttribute="leading" secondItem="5o7-ed-7Js" secondAttribute="trailing" constant="16" id="8F2-9Y-D2Z"/>
                             <constraint firstItem="cMW-uu-S1h" firstAttribute="leading" secondItem="fvL-xe-waR" secondAttribute="leading" constant="16" id="G6x-g9-USA"/>
+                            <constraint firstItem="guO-nT-hWQ" firstAttribute="top" secondItem="Vm7-3F-zaO" secondAttribute="bottom" constant="16" id="NwV-xr-Vkt"/>
                             <constraint firstItem="cMW-uu-S1h" firstAttribute="top" secondItem="0M4-mD-C8L" secondAttribute="bottom" constant="16" id="RKh-bk-iQG"/>
                             <constraint firstItem="Vm7-3F-zaO" firstAttribute="leading" secondItem="DAs-Jg-6c9" secondAttribute="leading" id="ThC-Bg-bu0"/>
                             <constraint firstItem="5o7-ed-7Js" firstAttribute="top" secondItem="pEq-Xv-Wd8" secondAttribute="bottom" constant="34" id="UPs-t0-Inl"/>
@@ -280,13 +282,20 @@
                             <constraint firstItem="aGx-oW-FXg" firstAttribute="top" secondItem="0M4-mD-C8L" secondAttribute="bottom" constant="16" id="wet-GW-owf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="V1v-Y2-Z6h">
-                        <barButtonItem key="leftBarButtonItem" image="back-icon" id="jzk-gl-r9F"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tweet" id="V1v-Y2-Z6h"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="dQp-Kh-3by" id="su0-o4-2Ve"/>
+                        <outlet property="nameLabel" destination="DAs-Jg-6c9" id="QY1-6T-MLe"/>
+                        <outlet property="profilePictureImageView" destination="cMW-uu-S1h" id="vm3-5i-Lx9"/>
+                        <outlet property="replyButton" destination="5o7-ed-7Js" id="Zxr-YN-JX2"/>
+                        <outlet property="retweetButton" destination="guO-nT-hWQ" id="Yxj-wq-ILd"/>
+                        <outlet property="tweetLabel" destination="Vm7-3F-zaO" id="oUI-HV-a0a"/>
+                        <outlet property="usernameLabel" destination="aGx-oW-FXg" id="3Cj-GQ-elp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMZ-CS-3QV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.5999999999999" y="35.532233883058474"/>
+            <point key="canvasLocation" x="2297" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -306,28 +315,9 @@
             </objects>
             <point key="canvasLocation" x="860" y="36.431784107946029"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="TN1-jF-col">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wns-iu-t2m" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C3O-nk-2gf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kid-ul-jmz" kind="relationship" relationship="rootViewController" id="XDo-L0-XHN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qPM-tX-l3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2422" y="-3552"/>
-        </scene>
     </scenes>
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>
-        <image name="back-icon" width="30" height="30"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="profile-Icon" width="26" height="26"/>
