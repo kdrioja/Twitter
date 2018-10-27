@@ -194,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				5DD8237E2170656F0004965C /* TweetCell.swift */,
-				BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */,
 				ED1AFD601E94496E00FD4B90 /* LoginViewController.swift */,
+				BEBC8367211F4199003A5FE1 /* TimelineViewController.swift */,
 				5DA482702183C9A200A34F2C /* TweetDetailsViewController.swift */,
 			);
 			name = "View Controllers";

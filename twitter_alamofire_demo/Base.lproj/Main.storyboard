@@ -155,7 +155,7 @@
                                             <outlet property="retweetButton" destination="TgX-Yl-G35" id="TWf-7E-6Nt"/>
                                             <outlet property="tweetLabel" destination="epC-Fs-Q5Z" id="NBl-3a-AbH"/>
                                             <outlet property="usernameLabel" destination="htC-10-1ih" id="Els-Xl-tB4"/>
-                                            <segue destination="kid-ul-jmz" kind="show" id="7PX-2b-xTd"/>
+                                            <segue destination="kid-ul-jmz" kind="show" identifier="detailsSegue" id="7PX-2b-xTd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -239,6 +239,9 @@
                                 <state key="normal" title="99999" image="retweet-icon">
                                     <color key="titleColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapRetweet:" destination="kid-ul-jmz" eventType="touchUpInside" id="cFR-xO-g5Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-Kh-3by">
                                 <rect key="frame" x="192" y="210" width="77" height="30"/>
@@ -246,6 +249,9 @@
                                 <state key="normal" title="99999" image="favor-icon">
                                     <color key="titleColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapFavorite:" destination="kid-ul-jmz" eventType="touchUpInside" id="XdK-5A-gEU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5o7-ed-7Js">
                                 <rect key="frame" x="14" y="210" width="69" height="30"/>
@@ -253,6 +259,9 @@
                                 <state key="normal" title="Reply" image="reply-icon">
                                     <color key="titleColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapReply:" destination="kid-ul-jmz" eventType="touchUpInside" id="0i6-Sp-H5i"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -284,6 +293,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="V1v-Y2-Z6h"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pEq-Xv-Wd8" id="0w9-xd-ka9"/>
                         <outlet property="favoriteButton" destination="dQp-Kh-3by" id="su0-o4-2Ve"/>
                         <outlet property="nameLabel" destination="DAs-Jg-6c9" id="QY1-6T-MLe"/>
                         <outlet property="profilePictureImageView" destination="cMW-uu-S1h" id="vm3-5i-Lx9"/>
