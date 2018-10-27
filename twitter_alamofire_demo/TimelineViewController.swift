@@ -39,6 +39,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func onCompose(_ sender: Any) {
+        self.performSegue(withIdentifier: "composeSegue", sender: nil)
     }
     
     func fetchTweets() {

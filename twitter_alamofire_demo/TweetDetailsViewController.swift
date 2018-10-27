@@ -125,5 +125,11 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func onTapReply(_ sender: Any) {
         
     }
-    
+    /*
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profilePictureImageView.layer.cornerRadius = 3
+        profilePictureImageView.clipsToBounds = true
+    }
+ */
 }

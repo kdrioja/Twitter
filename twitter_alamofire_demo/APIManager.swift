@@ -126,8 +126,6 @@ class APIManager: SessionManager {
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
     
-    //
-    
     // MARK: TODO: Favorite a Tweet
     func favorite(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/favorites/create.json"
