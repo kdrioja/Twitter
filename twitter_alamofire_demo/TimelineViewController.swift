@@ -94,12 +94,18 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! TweetCell
-        if let indexPath = tableView.indexPath(for: cell) {
-            let tweet = tweets[indexPath.row]
-            let tweetDetailsVC = segue.destination as! TweetDetailsViewController
-            tweetDetailsVC.tweet = tweet
-            tweetDetailsVC.user = tweet.user
+        if segue.identifier == "detailsSegue" {
+            let cell = sender as! TweetCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let tweet = tweets[indexPath.row]
+                let tweetDetailsVC = segue.destination as! TweetDetailsViewController
+                tweetDetailsVC.tweet = tweet
+                tweetDetailsVC.user = tweet.user
+            }
         }
+        else if segue.identifier == "composeSegue" {
+            
+        }
+        
     }
 }

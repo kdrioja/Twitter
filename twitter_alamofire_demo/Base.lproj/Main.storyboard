@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="84" y="36"/>
         </scene>
         <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
@@ -168,6 +168,7 @@
                             <barButtonItem image="edit-icon" id="P9p-Ee-OJ0">
                                 <connections>
                                     <action selector="onCompose:" destination="5YO-Vh-39k" id="oGa-Dt-NIm"/>
+                                    <segue destination="NcR-Ru-l3p" kind="show" identifier="composeSegue" id="hBo-SS-oic"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="profile-Icon" id="1m2-qI-VOp">
@@ -305,7 +306,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMZ-CS-3QV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="36"/>
+            <point key="canvasLocation" x="2329" y="36"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="hOU-wC-6r9">
+            <objects>
+                <viewController id="NcR-Ru-l3p" customClass="ComposeViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oFn-pL-9Ye"/>
+                        <viewControllerLayoutGuide type="bottom" id="L4P-OC-rT4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y7z-BK-Uzo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aziz Ansari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIc-hb-HrO">
+                                <rect key="frame" x="99" y="80" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-cN-fq3">
+                                <rect key="frame" x="16" y="163" width="343" height="89"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et m.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1FQ-0q-Un3">
+                                <rect key="frame" x="16" y="80" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="0BE-YL-ExP"/>
+                                    <constraint firstAttribute="width" constant="75" id="s2O-rx-hPi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@azizansari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFC-jq-Iey">
+                                <rect key="frame" x="99" y="105" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBW-0g-9lf">
+                                <rect key="frame" x="335" y="251" width="24" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Characters remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUr-GX-vax">
+                                <rect key="frame" x="184" y="251" width="143" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.53367875649999996" green="0.53367875649999996" blue="0.53367875649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dFC-jq-Iey" firstAttribute="top" secondItem="WIc-hb-HrO" secondAttribute="bottom" constant="4" id="Jqf-LC-pJP"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="dFC-jq-Iey" secondAttribute="trailing" constant="168" id="KpO-cf-pRl"/>
+                            <constraint firstItem="1FQ-0q-Un3" firstAttribute="top" secondItem="oFn-pL-9Ye" secondAttribute="bottom" constant="16" id="RXF-u5-y1t"/>
+                            <constraint firstItem="Dx7-cN-fq3" firstAttribute="trailing" secondItem="Y7z-BK-Uzo" secondAttribute="trailingMargin" id="SVC-DF-uxS"/>
+                            <constraint firstItem="dFC-jq-Iey" firstAttribute="leading" secondItem="1FQ-0q-Un3" secondAttribute="trailing" constant="8" id="TNg-Kt-2dJ"/>
+                            <constraint firstItem="WIc-hb-HrO" firstAttribute="leading" secondItem="1FQ-0q-Un3" secondAttribute="trailing" constant="8" id="VRW-xh-x4U"/>
+                            <constraint firstItem="Dx7-cN-fq3" firstAttribute="leading" secondItem="Y7z-BK-Uzo" secondAttribute="leadingMargin" id="bOv-fN-rtt"/>
+                            <constraint firstItem="1FQ-0q-Un3" firstAttribute="leading" secondItem="Y7z-BK-Uzo" secondAttribute="leadingMargin" id="c53-qd-dyP"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WIc-hb-HrO" secondAttribute="trailing" constant="168" id="gtw-71-oaT"/>
+                            <constraint firstItem="L4P-OC-rT4" firstAttribute="top" secondItem="Dx7-cN-fq3" secondAttribute="bottom" constant="415" id="iob-Tn-uZi"/>
+                            <constraint firstItem="dFC-jq-Iey" firstAttribute="leading" secondItem="WIc-hb-HrO" secondAttribute="leading" id="j6V-Hu-5Du"/>
+                            <constraint firstItem="WIc-hb-HrO" firstAttribute="top" secondItem="oFn-pL-9Ye" secondAttribute="bottom" constant="16" id="mcf-du-v3V"/>
+                            <constraint firstItem="Dx7-cN-fq3" firstAttribute="top" secondItem="1FQ-0q-Un3" secondAttribute="bottom" constant="8" id="pZg-6r-cQN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HfA-sC-Iwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.5999999999999" y="781.25937031484261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -323,7 +399,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-jg-Lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="834" y="36"/>
         </scene>
     </scenes>
     <resources>
