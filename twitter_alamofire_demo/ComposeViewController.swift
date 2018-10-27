@@ -21,6 +21,7 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var charsRemainingLabel: UILabel!
     
     weak var delegate: ComposeViewControllerDelegate?
+    var parentView: TimelineViewController?
     let charLimit: Int = 140
     
     var isReply: Bool = false
@@ -33,6 +34,8 @@ class ComposeViewController: UIViewController {
         profilePictureImageView.af_setImage(withURL: profilePictureURL!)
         nameLabel.text = User.current?.name
         usernameLabel.text = "@\(User.current?.screenName ?? "username")"
+        
+        
     }
     
     @IBAction func onTapPost(_ sender: Any) {
@@ -53,6 +56,9 @@ class ComposeViewController: UIViewController {
         performSegue(withIdentifier: "returnTimelineSegue", sender: nil)
     }
     
+    func did(tweet: Tweet) {
+        
+    }
     /*
     override func awakeFromNib() {
         super.awakeFromNib()
