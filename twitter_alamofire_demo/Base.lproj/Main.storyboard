@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6S-8v-GeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="602"/>
+            <point key="canvasLocation" x="2470" y="781"/>
         </scene>
         <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
@@ -476,6 +476,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="QBW-0g-9lf" firstAttribute="trailing" secondItem="Y7z-BK-Uzo" secondAttribute="trailingMargin" id="1wg-hx-rIe"/>
                             <constraint firstItem="dFC-jq-Iey" firstAttribute="leading" secondItem="WIc-hb-HrO" secondAttribute="leading" id="2mu-Np-roc"/>
@@ -504,10 +505,14 @@
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="WIc-hb-HrO" secondAttribute="trailing" constant="168" id="sYf-dA-Jmv"/>
                             <constraint firstItem="QBW-0g-9lf" firstAttribute="centerY" secondItem="YUr-GX-vax" secondAttribute="centerY" id="wbh-bD-cIS"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="m82-8W-haB" appends="YES" id="1F8-0v-Ci9"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="charsRemainingLabel" destination="QBW-0g-9lf" id="CSP-ge-mfc"/>
                         <outlet property="nameLabel" destination="WIc-hb-HrO" id="d7m-AW-VLt"/>
+                        <outlet property="postButton" destination="EcG-8Z-wpk" id="tOQ-gS-Shy"/>
                         <outlet property="profilePictureImageView" destination="1FQ-0q-Un3" id="rxc-kH-8AT"/>
                         <outlet property="tweetLabel" destination="Dx7-cN-fq3" id="Xoe-G1-n4v"/>
                         <outlet property="usernameLabel" destination="dFC-jq-Iey" id="t9n-cH-TRR"/>
@@ -515,6 +520,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfA-sC-Iwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="m82-8W-haB">
+                    <connections>
+                        <action selector="onTapElsewhere:" destination="NcR-Ru-l3p" id="8fS-Ps-dST"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1573.5999999999999" y="781.25937031484261"/>
         </scene>

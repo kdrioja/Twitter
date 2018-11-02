@@ -19,6 +19,7 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tweetLabel: UITextView!
     @IBOutlet weak var charsRemainingLabel: UILabel!
+    @IBOutlet weak var postButton: UIBarButtonItem!
     
     weak var delegate: ComposeViewControllerDelegate?
     var parentView: TimelineViewController?
@@ -35,7 +36,14 @@ class ComposeViewController: UIViewController {
         nameLabel.text = User.current?.name
         usernameLabel.text = "@\(User.current?.screenName ?? "username")"
         
+        postButton.isEnabled = false
+        tweetLabel.textColor = UIColor.lightGray
+        tweetLabel.delegate = self as? UITextViewDelegate
         
+        if (isReply), let replyUsername = self.replyUsername {
+            tweetLabel.text = "@\(replyUsername) "
+            tweetLabel.textColor = UIColor.black
+        }
     }
     
     @IBAction func onTapPost(_ sender: Any) {
@@ -56,14 +64,49 @@ class ComposeViewController: UIViewController {
         performSegue(withIdentifier: "returnTimelineSegue", sender: nil)
     }
     
+    @IBAction func onTapElsewhere(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
+        let current = newText.count
+        
+        //charsRemainingLabel.text = "\(charLimit - current)"
+        if (current == 0) {
+            charsRemainingLabel.textColor = UIColor.lightGray
+            postButton.isEnabled = false
+        }
+        else if (current <= charLimit) {
+            charsRemainingLabel.textColor = UIColor.lightGray
+            postButton.isEnabled = true
+        }
+        else {
+            postButton.isEnabled = false
+            charsRemainingLabel.textColor = UIColor.red
+        }
+        charsRemainingLabel.text = "\(current)"
+        
+        return current <= charLimit
+    }
+    
+    func textViewDidBeginEditing(_ tweetLabel: UITextView) {
+        if (tweetLabel.textColor == UIColor.lightGray) {
+            tweetLabel.text = nil
+            tweetLabel.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ tweetLabel: UITextView) {
+        if (tweetLabel.text.count == 0) {
+            tweetLabel.text = "Write a post..."
+            tweetLabel.textColor = UIColor.lightGray
+            postButton.isEnabled = false
+        }
+    }
+    
     func did(tweet: Tweet) {
         
     }
-    /*
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        profilePictureImageView.layer.cornerRadius = 3
-        profilePictureImageView.clipsToBounds = true
-    }
- */
 }
