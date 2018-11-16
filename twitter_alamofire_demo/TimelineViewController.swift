@@ -36,6 +36,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func onProfile(_ sender: Any) {
+        self.performSegue(withIdentifier: "profileSegue", sender: nil)
     }
     
     @IBAction func onCompose(_ sender: Any) {

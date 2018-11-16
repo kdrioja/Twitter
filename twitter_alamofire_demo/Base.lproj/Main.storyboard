@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="84" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="lDC-k1-QkE">
             <objects>
-                <viewController id="q6q-rP-wax" sceneMemberID="viewController">
+                <viewController id="q6q-rP-wax" customClass="ProfileViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LWj-Ob-psM"/>
                         <viewControllerLayoutGuide type="bottom" id="tIS-QA-Mca"/>
@@ -139,10 +139,18 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="followersCountLabel" destination="hC3-yA-hgm" id="RRY-MT-Sco"/>
+                        <outlet property="followingCountLabel" destination="ZPM-Vn-Y3k" id="dlM-hC-yuq"/>
+                        <outlet property="nameLabel" destination="g9e-rq-NXz" id="b8c-dh-how"/>
+                        <outlet property="profilePictureImageView" destination="IDl-Ub-o7Q" id="xjk-32-AMa"/>
+                        <outlet property="tweetCountLabel" destination="MX3-xm-XCt" id="qdG-N3-qUE"/>
+                        <outlet property="usernameLabel" destination="sNq-Lm-89s" id="mZV-vi-UDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6S-8v-GeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470" y="805"/>
+            <point key="canvasLocation" x="1574" y="-707"/>
         </scene>
         <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
@@ -270,6 +278,7 @@
                             <barButtonItem image="profile-Icon" id="1m2-qI-VOp">
                                 <connections>
                                     <action selector="onProfile:" destination="5YO-Vh-39k" id="MrD-mO-e2J"/>
+                                    <segue destination="q6q-rP-wax" kind="show" identifier="profileSegue" id="QPT-Mg-xJH"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
