@@ -78,7 +78,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
         
         // TODO: Update Character Count Label
-        charsRemainingLabel.text = String(newText.count)
+        charsRemainingLabel.text = String(140 - newText.count)
         
         // The new text should be allowed? True/False
         return newText.count < characterLimit
