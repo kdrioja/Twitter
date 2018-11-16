@@ -12,7 +12,7 @@ protocol ComposeViewControllerDelegate: class {
     func did(post: Tweet)
 }
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -36,13 +36,13 @@ class ComposeViewController: UIViewController {
         nameLabel.text = User.current?.name
         usernameLabel.text = "@\(User.current?.screenName ?? "username")"
         
-        postButton.isEnabled = false
-        tweetLabel.textColor = UIColor.lightGray
-        tweetLabel.delegate = self as? UITextViewDelegate
+        //postButton.isEnabled = false
+        //tweetLabel.textColor = UIColor.lightGray
+        tweetLabel.delegate = self
         
         if (isReply), let replyUsername = self.replyUsername {
-            tweetLabel.text = "@\(replyUsername) "
             tweetLabel.textColor = UIColor.black
+            tweetLabel.text = "@\(replyUsername) "
         }
     }
     
@@ -70,6 +70,20 @@ class ComposeViewController: UIViewController {
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        // Set the max character limit
+        let characterLimit = 140
+        
+        // Construct what the new text would be if we allowed the user's latest edit
+        let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
+        
+        // TODO: Update Character Count Label
+        charsRemainingLabel.text = String(newText.count)
+        
+        // The new text should be allowed? True/False
+        return newText.count < characterLimit
+        
+        /*
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
         let current = newText.count
         
@@ -89,6 +103,7 @@ class ComposeViewController: UIViewController {
         charsRemainingLabel.text = "\(current)"
         
         return current <= charLimit
+         */
     }
     
     func textViewDidBeginEditing(_ tweetLabel: UITextView) {
@@ -102,7 +117,7 @@ class ComposeViewController: UIViewController {
         if (tweetLabel.text.count == 0) {
             tweetLabel.text = "Write a post..."
             tweetLabel.textColor = UIColor.lightGray
-            postButton.isEnabled = false
+            postButton.isEnabled = true
         }
     }
     
