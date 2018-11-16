@@ -142,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6S-8v-GeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470" y="781"/>
+            <point key="canvasLocation" x="2470" y="805"/>
         </scene>
         <!--Home-->
         <scene sceneID="5vf-Kh-7ye">
@@ -358,6 +358,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onTapReply:" destination="kid-ul-jmz" eventType="touchUpInside" id="0i6-Sp-H5i"/>
+                                    <segue destination="NcR-Ru-l3p" kind="presentation" identifier="replySegue" id="zWA-5k-hSL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -525,7 +526,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1573.5999999999999" y="781.25937031484261"/>
+            <point key="canvasLocation" x="1574" y="805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -556,5 +557,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kQn-Ej-Edn"/>
+        <segue reference="zWA-5k-hSL"/>
     </inferredMetricsTieBreakers>
 </document>

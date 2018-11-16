@@ -123,13 +123,14 @@ class TweetDetailsViewController: UIViewController {
     }
     
     @IBAction func onTapReply(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "replySegue", sender: nil)
     }
-    /*
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        profilePictureImageView.layer.cornerRadius = 3
-        profilePictureImageView.clipsToBounds = true
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "replySegue" {
+            let replyComposeVC = segue.destination as! ComposeViewController
+            replyComposeVC.isReply = true
+            replyComposeVC.replyUsername = user?.screenName
+        }
     }
- */
 }

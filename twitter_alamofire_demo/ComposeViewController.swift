@@ -41,8 +41,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         tweetLabel.delegate = self
         
         if (isReply), let replyUsername = self.replyUsername {
-            tweetLabel.textColor = UIColor.black
+            //tweetLabel.textColor = UIColor.black
             tweetLabel.text = "@\(replyUsername) "
+            
+            let newText = NSString(string: tweetLabel.text!)
+            charsRemainingLabel.text = String(charLimit - newText.length)
         }
     }
     
@@ -78,7 +81,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
         
         // TODO: Update Character Count Label
-        charsRemainingLabel.text = String(140 - newText.count)
+        charsRemainingLabel.text = String(charLimit - newText.count)
         
         // The new text should be allowed? True/False
         return newText.count < characterLimit
