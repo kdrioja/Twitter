@@ -28,13 +28,5 @@ class ProfileViewController: UIViewController {
             followersCountLabel.text = "\(user.followerCount!)"
             followingCountLabel.text = "\(user.friendCount!)"
         }
-        /*
-        profilePictureImageView.af_setImage(withURL: (User.current?.profilePhoto)!)
-        nameLabel.text = User.current?.name
-        usernameLabel.text = "@\(String(describing: User.current?.screenName!))"
-        tweetCountLabel.text = "\(String(describing: User.current?.statusCount!))"
-        followersCountLabel.text = "\(String(describing: User.current?.followerCount!))"
-        followingCountLabel.text = "\(String(describing: User.current?.friendCount!))"
-        */
  }
 }
